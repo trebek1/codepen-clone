@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		var js = document.getElementById("js"); 
 		var code = document.getElementById("code").contentWindow.document; 
 
-		document.body.onkeyup = function(){
+		var run  = function(){
 			var test = document.getElementsByTagName('body')[0];
 			var num1 = Math.floor(Math.random()*255); 
 			var num2 = Math.floor(Math.random()*255); 
@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', function(){
 				code.writeln(html.value + "<style>"+css.value+"</style>" + "<script>" + js.value + "</script>"); 
 				code.close(); 
 			}
+			document.body.onkeyup = run; 
+			//window.setInterval(run, 100);  
 	}
+	compile();
 
-	compile(); 
+	
 }); 
